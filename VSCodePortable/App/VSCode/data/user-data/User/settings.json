@@ -1,4 +1,11 @@
 {
 	"git.ignoreMissingGitWarning": true,
 	"update.mode": "start",
+
+	//here so PAL does not break the file
+	"php.validate.executablePath": "",
+    "python.defaultInterpreterPath": "",
+    "java.jdt.ls.java.home": "",
+    "rsp-ui.rsp.java.home": "",
+    "netbeans.jdkhome": "",
 }
