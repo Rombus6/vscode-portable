@@ -14,7 +14,7 @@ on the machine you run it on, so you can take it with you wherever you go.
 All other downloads are available [in the Releases section][D1]. Visual Studio Code Portable
 is packaged as an online installer and complete zip file.
 
-[D1]: https://github.com/garethflowers/vscode-portable/releases/latest
+[D1]: https://github.com/Rombus6/vscode-portable/releases/latest
 
 ## Features
 
@@ -26,12 +26,13 @@ is packaged as an online installer and complete zip file.
 
 ## System Requirements
 
-*	Microsoft Windows 7 or later.
+*	Microsoft Windows 7 or later x64 only.
 *	[PortableApps.com Platform](https://portableapps.com/download) (Optional)
 
 ## Credits
 *	Visual Studio Code Portable is a redistribution of the [Visual Studio Code](https://code.visualstudio.com) editor, developed by [Microsoft](https://www.microsoft.com).
 *	[PortableApps.com platform](https://portableapps.com/download) developed by the [PortableApps.com team](https://portableapps.com).
+*   [garethflowers] for versions prior to 3.0.0
 
 ## License
 
