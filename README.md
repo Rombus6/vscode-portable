@@ -23,6 +23,9 @@ is packaged as an online installer and complete zip file.
 *	Does not require administrator privileges, works for any user.
 *	No need for any external software - simply download extract and run!
 *	Packaged in PortableApps.com format for easy integration.
+## Additons 
+*   Multi language support: some languages required an extension for support see [PortableApps.com Manual](https://portableapps.com/manuals/PortableApps.comLauncher/topics/languages.html#languages-values) and [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/search?target=VSCode&category=Language%20Packs&sortBy=Installs) for specifics
+* Bulit-in Support for various Tools: I use this extensively so it has compatibility with (Git, Cmder & others) see Notes for details   
 
 ## System Requirements
 
@@ -32,10 +35,13 @@ is packaged as an online installer and complete zip file.
 ## Credits
 *	Visual Studio Code Portable is a redistribution of the [Visual Studio Code](https://code.visualstudio.com) editor, developed by [Microsoft](https://www.microsoft.com).
 *	[PortableApps.com platform](https://portableapps.com/download) developed by the [PortableApps.com team](https://portableapps.com).
-*   [garethflowers] for versions prior to 3.0.0
+*   [garethflowers](https://garethflowers.dev/) for versions prior to 3.0.0
 
 ## License
 
 *	Visual Studio Code Portable released under [the GPL v2.0 license](https://raw.githubusercontent.com/garethflowers/vscode-portable/master/LICENSE).
 *	PortableApps.com Launcher released under [the GPL v2.0 license](https://raw.githubusercontent.com/garethflowers/vscode-portable/master/VSCodePortable-x64/Other/Source/LauncherLicense.txt).
 *	The Visual Studio Code editor is released under [the MIT license](https://raw.githubusercontent.com/Microsoft/vscode/master/LICENSE.txt).
+
+## NOTES
+. **todo**
