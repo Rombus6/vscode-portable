@@ -1,0 +1,33 @@
+{
+    "launch": {
+        "configurations": [
+            {
+                "name": "Firefox (Launch) (File)",
+                "type": "firefox",
+                "request": "launch",
+                "file": "${file}",
+            },
+            {
+                "name": "Firefox (Attach)",
+                "type": "firefox",
+                "request": "attach",
+                "port": 6000,
+            },
+            {
+                "name": "Chromium (Launch)",
+                "type": "chrome",
+                "request": "launch",
+                "runtimeArgs": [
+                    "--remote-debugging-port=9222",
+                ],
+                "file": "${file}",
+            },
+            {
+                "name": "Chromium (Attach)",
+                "type": "chrome",
+                "request": "attach",
+                "port": 9222,
+            },
+        ]
+    },
+}

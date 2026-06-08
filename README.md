@@ -44,4 +44,60 @@ is packaged as an online installer and complete zip file.
 *	The Visual Studio Code editor is released under [the MIT license](https://raw.githubusercontent.com/Microsoft/vscode/master/LICENSE.txt).
 
 ## NOTES
-. **todo**
+* ### Initial setup
+    After VSCode is initially ran go to the (user) settings.json fix the formatting error that will arise due the ```[FileWriteN]``` functions within 
+    >App\Appinfo\Launcher\VSCodePortable.ini 
+
+    appending instead of replacing this probably is fixable but incredibly minor of an issue
+
+* ### Preface
+    ---
+    Everything is specifically written with the use of [PortableApps.com Platform](https://portableapps.com/download) in mind any paths should start at
+    >\PortableApps\ 
+* ### Required additions 
+    ---
+    * #### [Cmder](https://https://github.com/cmderdev/cmder) Mini
+        Everything assumes this going to be used, Provides extended terminal function mainly to the command prompt like command history and suggestion
+        [see for install and integration instructions](https://github.com/cmderdev/cmder/wiki/Seamless-VS-Code-Integration)
+        Mini distribution is recommended due to smaller size and lack of Git included
+    * #### Powershell
+        for Powershell history to be portable via Cmder or in general (HistorySavePath) needs to be set Cmder has support run startup add the following to  
+        >Common Files\Cmder\config\user_profile.ps1
+        ```powershell
+        [ScriptBlock]$PrePrompt
+        ```
+        ```powershell
+        Set-PSReadLineOption -HistorySavePath "${env:CMDER_ROOT}\config\ConsoleHost_history.txt"` 
+        ```
+        or copy the file of the same name in the **Misc** folder of the repo to the same path 
+
+* ###  Recommended Extensions      
+    ---
+    * #### [Open in External App](https://marketplace.visualstudio.com/items?itemName=YuTengjing.open-in-external-app)
+    
+* ### Specifically Supported
+    ---
+    * #### Python
+        ---
+        * Extension: [Python, Microsoft](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
+        * Distribution: [WinPython](https://winpython.github.io) [Download](https://sourceforge.net/projects/winpython/files/)
+        
+        Pretty straight foreward with this extract the files to  
+        >Common Files\WinPY
+        ```json
+        "python.defaultInterpreterPath": "",
+        ```
+        is cover by ```[FileWriteN]``` Python history is also made Portable in
+        >Cmder\config\.python_history
+        
+        via the environment variable ```%PYTHON_HISTORY%```    
+    * #### Java
+        ---
+        * Extension: [Extension Pack for Java, Microsoft](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)
+        * Distribution: [jdkPortable](https://portableapps.com/apps/utilities/jdkportable) [OpenJDK Portable](https://portableapps.com/apps/utilities/OpenJDK)
+
+            PortableApps.com
+    * #### Gradle
+
+    * #### Maven
+        ---

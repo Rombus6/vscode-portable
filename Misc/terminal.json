@@ -1,0 +1,39 @@
+{ 
+    "terminal.integrated.profiles.windows": {
+        "Command Prompt": {
+            "name": "Command Prompt",
+            "path": [
+                "${env:windir}\\Sysnative\\cmd.exe",
+                "${env:windir}\\System32\\cmd.exe"
+            ],
+            "args": ["/k", "${env:CMDER_ROOT}\\vendor\\bin\\vscode_init.cmd"],
+            "icon": "terminal-cmd",
+            "color": "terminal.ansiGreen"
+        },
+        "PowerShell": {
+	        "name": "PowerShell",
+		    "source": "PowerShell",
+		    "args": [
+			    "-ExecutionPolicy", "Bypass", "-NoLogo", "-NoProfile", "-NoExit", "-Command", "Invoke-Expression '. ''${env:CMDER_ROOT}\\vendor\\profile.ps1'''"
+		    ],
+		    "icon": "terminal-powershell",
+		    "color": "terminal.ansiGreen"
+        },
+        "Python": {
+            "name": "Python",
+            "path": [
+                "${env:windir}\\Sysnative\\cmd.exe",
+                "${env:windir}\\System32\\cmd.exe"
+            ],
+            "args": ["/k", "${env:CMDER_ROOT}\\vendor\\bin\\vscode_init.cmd & call ${env:WINPY}\\scripts\\winpython.bat" ],
+            "icon": "terminal-cmd",
+                "color": "terminal.ansiGreen"
+        },
+
+        "Git Bash": null,
+        "Ubuntu (WSL)": null,
+        "JavaScript Debug Terminal": null,
+        "Spell Checker REPL": null,
+        "Agent Host (local)": null
+    }
+}

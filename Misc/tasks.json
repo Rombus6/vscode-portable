@@ -1,0 +1,61 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "MongoDB",
+            "type": "shell",
+            "windows": {
+                "command": "${env:MONGODB}mongod.cmd"
+            },
+            "presentation": {
+                "close": true
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "MySQL",
+            "type": "shell",
+            "windows": {
+                "command": "${env:MYSQL}mysqld.cmd"
+            },
+            "presentation": {
+                "close": true
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Derby (Start)",
+            "type": "shell",
+            "windows":{
+                "command": "${env:DERBY_HOME}\\derby_start.cmd"
+            },
+            "presentation": {
+                "group": "Derby",
+                "close": true
+            },
+            "hide": true,
+            "problemMatcher": []
+        },
+        {
+            "label": "Derby (Stop)",
+            "type": "shell",
+            "windows":{
+                "command": "${env:DERBY_HOME}\\derby_stop.cmd"
+            },
+            "presentation": {
+                "group": "Derby",
+                "close": true
+            },
+            "hide": true,
+            "problemMatcher": []
+        },
+        {
+            "label": "Derby",
+            "dependsOn":["Derby (Start)", "Derby (Stop)"],
+            "presentation": {
+                "group": "Derby",
+            },
+            "problemMatcher": []
+        },
+    ]
+}
