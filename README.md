@@ -45,17 +45,21 @@ is packaged as an online installer and complete zip file.
 
 ## NOTES
 * ### Initial setup
-    After VSCode is initially ran go to the (user) settings.json fix the formatting error that will arise due the ```[FileWriteN]``` functions within 
+    After VSCode is initially ran go to the **(user) settings.json** fix the formatting error that will arise due the ```[FileWriteN]``` functions within 
 
     ``App\Appinfo\Launcher\VSCodePortable.ini`` 
 
-    appending instead of replacing this probably is fixable but incredibly minor of an issue
+    Appending instead of replacing this probably is fixable but incredibly minor of an issue
 
 * ### Preface
     ---
-    Everything is specifically written with the use of [PortableApps.com Platform](https://portableapps.com/download) in mind any paths should start at
-    
-    ``\PortableApps\`` 
+    Everything is specifically written with the use of [PortableApps.com Platform](https://portableapps.com/download) in mind any paths should start at ``\PortableApps\``
+
+    References to a **Misc** Folder are for the one in the Repository   
+* ### Adding Own Support
+    ---
+    Most Paths can work with environment variables either in the **(user) settings.json** or in the VSCode Portable's **launcher.ini** see [PortableApps.com Launcher Documentation](https://portableapps.com/manuals/PortableApps.comLauncher/) for details
+    ``[FileWriteN]`` should be the only other solution necessary 
 
 * ### Required additions 
     ---
@@ -64,7 +68,7 @@ is packaged as an online installer and complete zip file.
         [see for install and integration instructions](https://github.com/cmderdev/cmder/wiki/Seamless-VS-Code-Integration)
         Mini distribution is recommended due to smaller size and lack of Git included
     * #### Powershell
-        for Powershell history to be portable via Cmder or in general (HistorySavePath) needs to be set Cmder has support run startup add the following to
+        For Powershell history to be portable via Cmder or in general (HistorySavePath) needs to be set Cmder has support run startup add the following to
 
         ``Common Files\Cmder\config\user_profile.ps1``
         
@@ -74,7 +78,11 @@ is packaged as an online installer and complete zip file.
         ```powershell
         Set-PSReadLineOption -HistorySavePath "${env:CMDER_ROOT}\config\ConsoleHost_history.txt"` 
         ```
-        or copy the file of the same name in the **Misc** folder of the repo to the same path 
+        or copy the file of the same name in the **Misc** folder of the repo to the same path
+    * #### Command-line Utilities
+        If you have any Command-line Utilities to add to your terminal environment add them to ``\Common Files\Utilities``
+        
+        if you need to swap between powershell and cmd use the ``cmder_(terminal).bat`` in the **Misc** folder     
 
 * ###  Recommended Extensions      
     ---
@@ -90,7 +98,7 @@ is packaged as an online installer and complete zip file.
             
             ``Common Files\Git``
 
-            VSCode should just pick it up when launched thanks to ``%HOME%`` **recommend disabling "Git Bash" terminal profile in VScode**
+            VSCode should just pick it up when launched thanks to ``%HOME%`` **recommend disabling "Git Bash" terminal profile in VScode because it is accessible via other terminal profiles**
     * #### Python
         ---
         * Extension: [Python, Microsoft](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
@@ -149,12 +157,25 @@ is packaged as an online installer and complete zip file.
             ``%MAVEN_HOME%\bin`` is added to ``%PATH%``
             
             ``%MVN_HOME%`` and ``%M2_HOME%`` maybe be redundant
+    * #### Java-Based Servers
+        * Extension: [Runtime Server Protocol UI](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-rsp-ui)
+
+            provides ``[DirectoriesMove]`` for .rsp folder and ``[FileWriteN]`` for
+            ```json
+                "rsp-ui.rsp.java.home": "",
+            ```
         ---
     * #### PHP
-        * Extension: []()
-        * Distribution: []() []()
+        * Extensions: [PHP Debug](https://marketplace.visualstudio.com/items?itemName=xdebug.php-debug) [PHP Intelephense](https://marketplace.visualstudio.com/items?itemName=bmewburn.vscode-intelephense-client)
+        * Distribution: [XAMPP](https://www.apachefriends.org/) [Download](https://sourceforge.net/projects/xampp/files/XAMPP%20Windows/)
 
-            dakka
+            [PortableApps.com](https://portableapps.com/apps/development/xampp) has a launcher for XAMPP for easy integration with PortableApps.com Platform
+
+            ``[FileWriteN]`` i believe to be need for VSCode's builtin support for PHP
+            ```json
+            "php.validate.executablePath": ",
+            ```
+            
         ---
     * #### C#
         * Extension: [C# Dev Kit](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit)
@@ -162,11 +183,11 @@ is packaged as an online installer and complete zip file.
 
             requires .NET 10 Binaries other versions can added by extracting and not replacing to ``Common Files\Dotnet``
             
-            ``%DOTNET_CLI_HOME%`` added to ``%PATH%``
+            ``%DOTNET_CLI_HOME%`` is added to ``%PATH%``
             
         * Nuget
 
-            this is included in .NET and has being made portable every modification made points to ``%DOTNET_CLI_HOME%\.nuget`` 
+            this is included in .NET and has been made portable every modification made points to ``%DOTNET_CLI_HOME%\.nuget`` 
         ---
     * #### Node.js
         * Distribution: [Node.js](https://nodejs.org) [Download](https://nodejs.org/en/download)
@@ -185,15 +206,27 @@ is packaged as an online installer and complete zip file.
 
             ``%NODE%`` is added to ``%PATH%``
         ---
-    * #### SQL/Databases
-        * Extension: []()
-        * Distribution: []() []()
-
     * #### MySQL
-        * Server
+        * Extension: [SQL Tools](https://marketplace.visualstudio.com/items?itemName=mtxr.sqltools)
+        Provides client connective to many Database systems, **Requires Node.js**         
+    * #### MySQL Server
+        * Distribution: [MySQL](https://www.mysql.com/) [Download](https://dev.mysql.com/downloads/mysql/) 
 
+        **Zip archive only** extract to ``Common Files\MySQL``
+        get the ``mysqld.cmd`` from the **Misc** folder the file can only be run from VSCode's integrated terminal because ``%MYSQL%`` is established, to run outside of the integrated terminal create a batch file with following with the same folder as ``mysqld.cmd``
+        ```cmd
+            @echo off
+            setlocal ENABLEDELAYEDEXPANSION
+            set "MYSQL=%~dp0"
+            set "MYSQL=%MYSQL:\=\\%"
+            call mysqld.cmd
+        ```     
+        **Note ``mysqld.cmd`` establishes an insecure server**
 
-    * #### MariaDB
-        * server
+    * #### MariaDB Server
+        * Distribution: [XAMPP](https://www.apachefriends.org/) [Download](https://sourceforge.net/projects/xampp/files/XAMPP%20Windows/)
+        
+            XAMPP already provides a MariaDB server
+
         ---
     
