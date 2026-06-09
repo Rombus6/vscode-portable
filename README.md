@@ -56,10 +56,13 @@ is packaged as an online installer and complete zip file.
     Everything is specifically written with the use of [PortableApps.com Platform](https://portableapps.com/download) in mind any paths should start at ``\PortableApps\``
 
     References to a **Misc** Folder are for the one in the Repository   
+
 * ### Adding Own Support
     ---
     Most Paths can work with environment variables either in the **(user) settings.json** or in the VSCode Portable's **launcher.ini** see [PortableApps.com Launcher Documentation](https://portableapps.com/manuals/PortableApps.comLauncher/) for details
     ``[FileWriteN]`` should be the only other solution necessary 
+
+    **Also Backup the ``Launcher.ini`` if you have made changes to it**
 
 * ### Required additions 
     ---
