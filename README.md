@@ -119,11 +119,11 @@ is packaged as an online installer and complete zip file.
         * Extension: [Extension Pack for Java, Microsoft](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)
         * Distribution: [jdkPortable](https://portableapps.com/apps/utilities/jdkportable) [OpenJDK Portable](https://portableapps.com/apps/utilities/OpenJDK)
           
-            PortableApps.com already have Java Development Kits get available and has builtin integration which probably point to the oldest JDK available, [OpenJDK64](https://portableapps.com/apps/utilities/OpenJDK64) is the only version actually required as ``%JAVA_HOME%`` points to it as does
+            PortableApps.com already have Java Development Kits available and has builtin integration 
+            [OpenJDK64](https://portableapps.com/apps/utilities/OpenJDK64) is required as ``[FileWriteN]`` points to it
             ```json
             "java.jdt.ls.java.home": "", 
             ```
-            which is covered by ``[FileWriteN]``
 
             ``%JAVA_HOME%`` Points to ``Common Files\JDK64``
     * #### Gradle
