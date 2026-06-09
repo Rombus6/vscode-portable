@@ -163,7 +163,7 @@ is packaged as an online installer and complete zip file.
     * #### Java-Based Servers
         * Extension: [Runtime Server Protocol UI](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-rsp-ui)
 
-            provides ``[DirectoriesMove]`` for .rsp folder and ``[FileWriteN]`` for
+            Provides ``[DirectoriesMove]`` for .rsp folder and ``[FileWriteN]`` for
             ```json
                 "rsp-ui.rsp.java.home": "",
             ```
@@ -184,7 +184,7 @@ is packaged as an online installer and complete zip file.
         * Extension: [C# Dev Kit](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit)
         * Distribution: [.NET](https://dotnet.microsoft.com/) [Download](https://dotnet.microsoft.com/en-us/download)
 
-            requires .NET 10 Binaries other versions can added by extracting and not replacing to ``Common Files\Dotnet``
+            Requires .NET 10 Binaries other versions can added by extracting and not replacing to ``Common Files\Dotnet``
             
             ``%DOTNET_CLI_HOME%`` is added to ``%PATH%``
             
@@ -211,6 +211,7 @@ is packaged as an online installer and complete zip file.
         ---
     * #### MySQL
         * Extension: [SQL Tools](https://marketplace.visualstudio.com/items?itemName=mtxr.sqltools)
+        
         Provides client connective to many Database systems, **Requires Node.js**         
     * #### MySQL Server
         * Distribution: [MySQL](https://www.mysql.com/) [Download](https://dev.mysql.com/downloads/mysql/) 
