@@ -46,14 +46,17 @@ is packaged as an online installer and complete zip file.
 ## NOTES
 * ### Initial setup
     After VSCode is initially ran go to the (user) settings.json fix the formatting error that will arise due the ```[FileWriteN]``` functions within 
-    >App\Appinfo\Launcher\VSCodePortable.ini 
+
+    ``App\Appinfo\Launcher\VSCodePortable.ini`` 
 
     appending instead of replacing this probably is fixable but incredibly minor of an issue
 
 * ### Preface
     ---
     Everything is specifically written with the use of [PortableApps.com Platform](https://portableapps.com/download) in mind any paths should start at
-    >\PortableApps\ 
+    
+    ``\PortableApps\`` 
+
 * ### Required additions 
     ---
     * #### [Cmder](https://https://github.com/cmderdev/cmder) Mini
@@ -61,8 +64,10 @@ is packaged as an online installer and complete zip file.
         [see for install and integration instructions](https://github.com/cmderdev/cmder/wiki/Seamless-VS-Code-Integration)
         Mini distribution is recommended due to smaller size and lack of Git included
     * #### Powershell
-        for Powershell history to be portable via Cmder or in general (HistorySavePath) needs to be set Cmder has support run startup add the following to  
-        >Common Files\Cmder\config\user_profile.ps1
+        for Powershell history to be portable via Cmder or in general (HistorySavePath) needs to be set Cmder has support run startup add the following to
+
+        ``Common Files\Cmder\config\user_profile.ps1``
+        
         ```powershell
         [ScriptBlock]$PrePrompt
         ```
@@ -77,27 +82,118 @@ is packaged as an online installer and complete zip file.
     
 * ### Specifically Supported
     ---
+    * #### Git
+        ---
+        * Distribution: [Portable Git](https://git-scm.com/) [Download](https://git-scm.com/install/windows)
+            
+            Extract contents to
+            
+            ``Common Files\Git``
+
+            VSCode should just pick it up when launched thanks to ``%HOME%`` **recommend disabling "Git Bash" terminal profile in VScode**
     * #### Python
         ---
         * Extension: [Python, Microsoft](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
         * Distribution: [WinPython](https://winpython.github.io) [Download](https://sourceforge.net/projects/winpython/files/)
         
-        Pretty straight foreward with this extract the files to  
-        >Common Files\WinPY
-        ```json
-        "python.defaultInterpreterPath": "",
-        ```
-        is cover by ```[FileWriteN]``` Python history is also made Portable in
-        >Cmder\config\.python_history
-        
-        via the environment variable ```%PYTHON_HISTORY%```    
+            Pretty straight forward with this extract the files to  
+
+            ``Common Files\WinPY``
+
+            ```json
+            "python.defaultInterpreterPath": "",
+            ```
+            is cover by ``[FileWriteN]`` Python history is also made Portable ``Cmder\config\.python_history``
+
+            via the environment variable ``%PYTHON_HISTORY%``    
     * #### Java
         ---
         * Extension: [Extension Pack for Java, Microsoft](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)
         * Distribution: [jdkPortable](https://portableapps.com/apps/utilities/jdkportable) [OpenJDK Portable](https://portableapps.com/apps/utilities/OpenJDK)
+          
+            PortableApps.com already have Java Development Kits get available and has builtin integration which probably point to the oldest JDK available, [OpenJDK64](https://portableapps.com/apps/utilities/OpenJDK64) is the only version actually required as ``%JAVA_HOME%`` points to it as does
+            ```json
+            "java.jdt.ls.java.home": "", 
+            ```
+            which is covered by ``[FileWriteN]``
 
-            PortableApps.com
+            ``%JAVA_HOME%`` Points to ``Common Files\JDK64``
     * #### Gradle
+        * Extension: [Gradle for Java, Microsoft](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-gradle)
+        * Distribution: [Gradle](https://gradle.org) [Download](https://gradle.org/releases/)
 
+            This was made with "complete" version but "binary-only" should work extract files to
+
+            ``Common File\Gradle``
+            
+            ``%GRADLE_USER_HOME%`` points to ``%GRADLE_HOME%\.gradle``
+
+            ``%GRADLE_HOME%\bin`` is added to ``%PATH%``
     * #### Maven
+        * Extension: [Maven for Java, Microsoft](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven)
+        * Distribution: [Maven](https://maven.apache.org) [Download](https://maven.apache.org/download.cgi)
+            
+            Extract files to
+
+            ``Common Files\Maven``
+
+            add to following to 
+
+            ``Common Files\Maven\conf\settings.xml``
+
+            ```xml
+              <localRepository>${maven.home}/.m2/repository</localRepository>
+            ```
+            the tag may already exist in which case replace it, file is also available **Misc** Folder
+
+            ``%MAVEN_HOME%\bin`` is added to ``%PATH%``
+            
+            ``%MVN_HOME%`` and ``%M2_HOME%`` maybe be redundant
         ---
+    * #### PHP
+        * Extension: []()
+        * Distribution: []() []()
+
+            dakka
+        ---
+    * #### C#
+        * Extension: [C# Dev Kit](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit)
+        * Distribution: [.NET](https://dotnet.microsoft.com/) [Download](https://dotnet.microsoft.com/en-us/download)
+
+            requires .NET 10 Binaries other versions can added by extracting and not replacing to ``Common Files\Dotnet``
+            
+            ``%DOTNET_CLI_HOME%`` added to ``%PATH%``
+            
+        * Nuget
+
+            this is included in .NET and has being made portable every modification made points to ``%DOTNET_CLI_HOME%\.nuget`` 
+        ---
+    * #### Node.js
+        * Distribution: [Node.js](https://nodejs.org) [Download](https://nodejs.org/en/download)
+        
+            Standalone binary only extract contents to
+
+            ``Common Files\NodeJS``
+
+            add to ``Common Files\NodeJS\etc\npmrc``
+            ```
+            cache=${Node}/npm-cache
+            ```
+            so the cache does not get left in ``%LOCALAPPDATA%``
+            
+            file is available in the **Misc** Folder
+
+            ``%NODE%`` is added to ``%PATH%``
+        ---
+    * #### SQL/Databases
+        * Extension: []()
+        * Distribution: []() []()
+
+    * #### MySQL
+        * Server
+
+
+    * #### MariaDB
+        * server
+        ---
+    
