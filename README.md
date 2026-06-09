@@ -23,7 +23,7 @@ is packaged as an online installer and complete zip file.
 *	Does not require administrator privileges, works for any user.
 *	No need for any external software - simply download extract and run!
 *	Packaged in PortableApps.com format for easy integration.
-## Additons 
+## Additions  
 *   Multi language support: some languages required an extension for support see [PortableApps.com Manual](https://portableapps.com/manuals/PortableApps.comLauncher/topics/languages.html#languages-values) and [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/search?target=VSCode&category=Language%20Packs&sortBy=Installs) for specifics
 * Bulit-in Support for various Tools: I use this extensively so it has compatibility with (Git, Cmder & others) see Notes for details   
 
