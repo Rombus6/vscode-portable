@@ -186,11 +186,11 @@ is packaged as an online installer and complete zip file.
 
             Requires .NET 10 Binaries other versions can added by extracting and not replacing to ``Common Files\Dotnet``
             
-            ``%DOTNET_CLI_HOME%`` is added to ``%PATH%``
+            ``%DOTNET_ROOT%`` is added to ``%PATH%``
             
         * Nuget
 
-            this is included in .NET and has been made portable every modification made points to ``%DOTNET_CLI_HOME%\.nuget`` 
+            this is included in .NET and has been made portable every modification made points to ``%DOTNET_ROOT%\.nuget`` 
         ---
     * #### Node.js
         * Distribution: [Node.js](https://nodejs.org) [Download](https://nodejs.org/en/download)
