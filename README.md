@@ -176,7 +176,7 @@ is packaged as an online installer and complete zip file.
 
             ``[FileWriteN]`` i believe to be need for VSCode's builtin support for PHP
             ```json
-            "php.validate.executablePath": ",
+            "php.validate.executablePath": "",
             ```
             
         ---
