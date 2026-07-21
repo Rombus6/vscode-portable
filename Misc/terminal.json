@@ -1,23 +1,32 @@
-{ 
-    "terminal.integrated.profiles.windows": {
+{
+   "terminal.integrated.profiles.windows": {
         "Command Prompt": {
             "name": "Command Prompt",
             "path": [
                 "${env:windir}\\Sysnative\\cmd.exe",
                 "${env:windir}\\System32\\cmd.exe"
             ],
-            "args": ["/k", "${env:CMDER_ROOT}\\vendor\\bin\\vscode_init.cmd"],
+            "args": [
+                "/k",
+                "${env:CMDER_ROOT}\\vendor\\bin\\vscode_init.cmd"
+            ],
             "icon": "terminal-cmd",
             "color": "terminal.ansiGreen"
         },
         "PowerShell": {
-	        "name": "PowerShell",
-		    "source": "PowerShell",
-		    "args": [
-			    "-ExecutionPolicy", "Bypass", "-NoLogo", "-NoProfile", "-NoExit", "-Command", "Invoke-Expression '. ''${env:CMDER_ROOT}\\vendor\\profile.ps1'''"
-		    ],
-		    "icon": "terminal-powershell",
-		    "color": "terminal.ansiGreen"
+            "name": "PowerShell",
+            "source": "PowerShell",
+            "args": [
+                "-ExecutionPolicy",
+                "Bypass",
+                "-NoLogo",
+                "-NoProfile",
+                "-NoExit",
+                "-Command",
+                "Invoke-Expression '. ''${env:CMDER_ROOT}\\vendor\\profile.ps1'''"
+            ],
+            "icon": "terminal-powershell",
+            "color": "terminal.ansiGreen"
         },
         "Python": {
             "name": "Python",
@@ -25,11 +34,39 @@
                 "${env:windir}\\Sysnative\\cmd.exe",
                 "${env:windir}\\System32\\cmd.exe"
             ],
-            "args": ["/k", "${env:CMDER_ROOT}\\vendor\\bin\\vscode_init.cmd & call ${env:WINPY}\\scripts\\winpython.bat" ],
-            "icon": "terminal-cmd",
-                "color": "terminal.ansiGreen"
+            "args": [
+                "/c",
+                "${env:CMDER_ROOT}\\vendor\\bin\\vscode_init.cmd & ${env:PAL:CommonFiles:DoubleBackslash}\\Utilities\\python.cmd"
+            ],
+            "icon": "python",
+            "color": "terminal.ansiGreen"
         },
-
+        "MySQL Shell": {
+            "name": "MySQL Shell",
+            "path": [
+                "${env:windir}\\Sysnative\\cmd.exe",
+                "${env:windir}\\System32\\cmd.exe"
+            ],
+            "args": [
+                "/c",
+                "${env:CMDER_ROOT}\\vendor\\bin\\vscode_init.cmd & ${env:PAL:CommonFiles:DoubleBackslash}\\Utilities\\mysqlsh.cmd -h localhost -P 3307 -u root --no-password "
+            ],
+            "icon": "database",
+            "color": "terminal.ansiGreen"
+        },
+        "MongoDB Shell": {
+            "name": "MongoDB Shell",
+            "path": [
+                "${env:windir}\\Sysnative\\cmd.exe",
+                "${env:windir}\\System32\\cmd.exe"
+            ],
+            "args": [
+                "/c",
+                "${env:CMDER_ROOT}\\vendor\\bin\\vscode_init.cmd & ${env:PAL:CommonFiles:DoubleBackslash}\\Utilities\\mongosh mongodb://localhost:27021/"
+            ],
+            "icon": "database",
+            "color": "terminal.ansiGreen"
+        },
         "Git Bash": null,
         "Ubuntu (WSL)": null,
         "JavaScript Debug Terminal": null,

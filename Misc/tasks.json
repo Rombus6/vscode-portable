@@ -2,10 +2,10 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "MongoDB",
+            "label": "Glassfish Admin",
             "type": "shell",
             "windows": {
-                "command": "${env:MONGODB}mongod.cmd"
+                "command": "${env:PAL:PortableAppsDir:DoubleBackslash}\\FirefoxPortable2ndProfile\\FirefoxPortable2ndProfile.exe http://localhost:4848"
             },
             "presentation": {
                 "close": true
@@ -13,14 +13,55 @@
             "problemMatcher": []
         },
         {
-            "label": "MySQL",
+            "label": "MongoDB (Start)",
+            "type": "shell",
+            "windows": {
+                "command": "${env:MONGODB}mongod.cmd"
+            },
+            "presentation": {
+                "group": "MongoDB",
+                "close": true
+            },
+            "hide": true,
+            "problemMatcher": []
+        },
+        {
+            "label": "MongoDB (Stop)",
+            "type": "shell",
+            "windows": {
+                "command": "${env:MONGODB}$stop.cmd"
+            },
+            "presentation": {
+                "group": "MongoDB",
+                "close": true
+            },
+            "hide": true,
+            "problemMatcher": []
+        },
+        {
+            "label": "MySQL (Start)",
             "type": "shell",
             "windows": {
                 "command": "${env:MYSQL}mysqld.cmd"
             },
             "presentation": {
+                "group": "MySQL",
                 "close": true
             },
+            "hide": true,
+            "problemMatcher": []
+        },
+        {
+            "label": "MySQL (Stop)",
+            "type": "shell",
+            "windows": {
+                "command": "${env:MYSQL}$stop.cmd"
+            },
+            "presentation": {
+                "group": "MySQL",
+                "close": true
+            },
+            "hide": true,
             "problemMatcher": []
         },
         {
@@ -53,9 +94,25 @@
             "label": "Derby",
             "dependsOn":["Derby (Start)", "Derby (Stop)"],
             "presentation": {
-                "group": "Derby",
+                "group": "Derby"
             },
             "problemMatcher": []
         },
+        {
+            "label": "MySQL",
+            "dependsOn":["MySQL (Start)", "MySQL (Stop)"],
+            "presentation": {
+                "group": "MySQL"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "MongoDB",
+            "dependsOn":["MongoDB (Start)", "MongoDB (Stop)"],
+            "presentation": {
+                "group": "MongoDB"
+            },
+            "problemMatcher": []
+        }
     ]
 }

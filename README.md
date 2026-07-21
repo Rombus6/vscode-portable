@@ -135,7 +135,7 @@ is packaged as an online installer and complete zip file.
 
             This was made with "complete" version but "binary-only" should work extract files to
 
-            ``Common File\Gradle``
+            ``Common Files\Gradle``
             
             ``%GRADLE_USER_HOME%`` points to ``%GRADLE_HOME%\.gradle``
 
@@ -163,7 +163,7 @@ is packaged as an online installer and complete zip file.
     * #### Java-Based Servers
         * Extension: [Runtime Server Protocol UI](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-rsp-ui)
 
-            Provides ``[DirectoriesMove]`` for .rsp folder and ``[FileWriteN]`` for
+            Provides ``[DirectoriesMove]`` for **.rsp** folder and ``[FileWriteN]`` for
             ```json
                 "rsp-ui.rsp.java.home": "",
             ```
@@ -211,13 +211,15 @@ is packaged as an online installer and complete zip file.
         ---
     * #### MySQL
         * Extension: [SQL Tools](https://marketplace.visualstudio.com/items?itemName=mtxr.sqltools)
-        
         Provides client connective to many Database systems, **Requires Node.js**         
+        
+            **Note [MySQL Shell For VS Code](https://marketplace.visualstudio.com/items?itemName=Oracle.mysql-shell-for-vs-code) is generally redundant and may leave files behind**
+        
     * #### MySQL Server
         * Distribution: [MySQL](https://www.mysql.com/) [Download](https://dev.mysql.com/downloads/mysql/) 
 
         **Zip archive only** extract to ``Common Files\MySQL``
-        get the ``mysqld.cmd`` from the **Misc** folder the file can only be run from VSCode's integrated terminal because ``%MYSQL%`` is established, to run outside of the integrated terminal create a batch file with following with the same folder as ``mysqld.cmd``
+        get the ``mysqld.cmd`` from the **Misc** folder the file was designed to be run from VSCode's integrated terminal because ``%MYSQL%`` is established ``mysql_stop.cmd`` is the same, to run outside of the integrated terminal create a batch file with following with the same folder as ``mysqld.cmd``
         ```cmd
             @echo off
             setlocal ENABLEDELAYEDEXPANSION
@@ -227,10 +229,47 @@ is packaged as an online installer and complete zip file.
         ```     
         **Note ``mysqld.cmd`` establishes an insecure server**
 
+    * #### MySQL Shell
+        * Distribution: [MySQL Shell](https://github.com/mysql/mysql-shell) [Download](https://dev.mysql.com/downloads/shell/)
+        
+        **Zip archive only** extract to ``Common Files\Utilities\mysqlsh`` the ``mysqlsh.cmd`` file in the **Misc** Folder should be in ``Common Files\Utilities`` see the prior mentioned file for what is need to make MySQL Shell portable
+
+        see terminal.json in the **Misc** folder for terminal profile   
+
     * #### MariaDB Server
         * Distribution: [XAMPP](https://www.apachefriends.org/) [Download](https://sourceforge.net/projects/xampp/files/XAMPP%20Windows/)
         
             XAMPP already provides a MariaDB server
 
         ---
+    * #### MongoDB
+        * Extension: [MongoDB for VS Code](https://marketplace.visualstudio.com/items?itemName=mongodb.mongodb-vscode)
+        
+        **Note Support is experimental**
+
+    * #### MongoDB Server
+        * Distribution: [MongoDB](https://www.mongodb.com/products/self-managed/community-edition) [Download](https://www.mongodb.com/try/download/community)
+        
+        **Zip archive only** extract to ``Common Files\MongoDB``
+        get the ``mongod.cmd`` from the **Misc** folder the file was designed to be run from VSCode's integrated terminal because ``%MONGODB%`` is established ``mongodb_stop.cmd`` is the same, to run outside of the integrated terminal create a batch file with following with the same folder as ``mongod.cmd``
+        ```cmd
+            @echo off
+            setlocal ENABLEDELAYEDEXPANSION
+            set MONGODB=%~dp0
+            call mongod.cmd
+        ```
+
+    * #### MongoDB Shell
+        * Distribution: [MongoDB Shell](https://www.mongodb.com/docs/mongodb-shell/) [Download](https://www.mongodb.com/try/download/shell)
+        
+        **Zip archive only** extract to ``Common Files\Utilities``
+        the only files necessary are with in the bin folder any ``.dll`` files can be drop in ``Common Files\Utilities\lib`` or left in ``Common Files\Utilities``, ``mongosh.cfg`` in the **Misc Folder** is necessary, command history and "config" is preserved via ``[DirectoriesMove]`` on **%APPDATA%\mongodb\mongosh**
+
+        see terminal.json in the **Misc** folder for terminal profile
+    ---
+    * #### Swift
+        * Extension: [Swift](https://marketplace.visualstudio.com/items?itemName=swiftlang.swift-vscode)
+        * Distribution: [Swift](https://www.swift.org/) [Download](https://www.swift.org/install/windows/)
+        ### **This was attempted it does not see to be possible**
+    ---
     
