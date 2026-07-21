@@ -270,6 +270,6 @@ is packaged as an online installer and complete zip file.
     * #### Swift
         * Extension: [Swift](https://marketplace.visualstudio.com/items?itemName=swiftlang.swift-vscode)
         * Distribution: [Swift](https://www.swift.org/) [Download](https://www.swift.org/install/windows/)
-        ### **This was attempted it does not see to be possible**
+        ### **This was attempted it does not seem to be possible**
     ---
     
