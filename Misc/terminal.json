@@ -1,5 +1,5 @@
 {
-   "terminal.integrated.profiles.windows": {
+    "terminal.integrated.profiles.windows": {
         "Command Prompt": {
             "name": "Command Prompt",
             "path": [

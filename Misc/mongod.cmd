@@ -1,6 +1,6 @@
 @echo off
 echo net: > %MONGODB%mongod.cfg
-echo    port: 27017 >> %MONGODB%mongod.cfg
+echo    port: 27021 >> %MONGODB%mongod.cfg
 echo    bindIp: 127.0.0.1 >> %MONGODB%mongod.cfg
 echo storage: >> %MONGODB%mongod.cfg
 echo    dbPath: %MONGODB%data >> %MONGODB%mongod.cfg

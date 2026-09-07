@@ -18,7 +18,7 @@ echo general_log=on >> %MYSQL%my.ini
 echo slow_query_log=on >> %MYSQL%my.ini 
 echo port=3307 >> %MYSQL%my.ini 
 
-set PATH=%MYSQL%bin;%PATH%
+REM set PATH=%MYSQL%bin;%PATH%
 if not exist %MYSQL%logs (
     md %MYSQL%logs 
 )

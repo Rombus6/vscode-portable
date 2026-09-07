@@ -16,7 +16,7 @@
             "label": "MongoDB (Start)",
             "type": "shell",
             "windows": {
-                "command": "${env:MONGODB}mongod.cmd"
+                "command": "${env:PAL:CommonFiles:DoubleBackslash}\\MongoDB\\$start.cmd"
             },
             "presentation": {
                 "group": "MongoDB",
@@ -29,7 +29,7 @@
             "label": "MongoDB (Stop)",
             "type": "shell",
             "windows": {
-                "command": "${env:MONGODB}$stop.cmd"
+                "command": "${env:PAL:CommonFiles:DoubleBackslash}\\MongoDB\\$stop.cmd"
             },
             "presentation": {
                 "group": "MongoDB",
@@ -42,7 +42,7 @@
             "label": "MySQL (Start)",
             "type": "shell",
             "windows": {
-                "command": "${env:MYSQL}mysqld.cmd"
+                "command": "${env:PAL:CommonFiles:DoubleBackslash}\\MySQL\\$start.cmd"
             },
             "presentation": {
                 "group": "MySQL",
@@ -55,7 +55,7 @@
             "label": "MySQL (Stop)",
             "type": "shell",
             "windows": {
-                "command": "${env:MYSQL}$stop.cmd"
+                "command": "${env:PAL:CommonFiles:DoubleBackslash}\\MySQL\\$stop.cmd"
             },
             "presentation": {
                 "group": "MySQL",
@@ -64,6 +64,7 @@
             "hide": true,
             "problemMatcher": []
         },
+        /*
         {
             "label": "Derby (Start)",
             "type": "shell",
@@ -94,15 +95,16 @@
             "label": "Derby",
             "dependsOn":["Derby (Start)", "Derby (Stop)"],
             "presentation": {
-                "group": "Derby"
+                "group": "Derby",
             },
             "problemMatcher": []
         },
+        */
         {
             "label": "MySQL",
             "dependsOn":["MySQL (Start)", "MySQL (Stop)"],
             "presentation": {
-                "group": "MySQL"
+                "group": "MySQL",
             },
             "problemMatcher": []
         },
@@ -110,9 +112,9 @@
             "label": "MongoDB",
             "dependsOn":["MongoDB (Start)", "MongoDB (Stop)"],
             "presentation": {
-                "group": "MongoDB"
+                "group": "MongoDB",
             },
             "problemMatcher": []
-        }
+        },
     ]
 }

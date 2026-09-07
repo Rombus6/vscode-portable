@@ -23,6 +23,7 @@ is packaged as an online installer and complete zip file.
 *	Does not require administrator privileges, works for any user.
 *	No need for any external software - simply download extract and run!
 *	Packaged in PortableApps.com format for easy integration.
+
 ## Additions  
 *   Multi language support: some languages required an extension for support see [PortableApps.com Manual](https://portableapps.com/manuals/PortableApps.comLauncher/topics/languages.html#languages-values) and [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/search?target=VSCode&category=Language%20Packs&sortBy=Installs) for specifics
 * Bulit-in Support for various Tools: I use this extensively so it has compatibility with (Git, Cmder & others) see Notes for details   
@@ -95,17 +96,23 @@ is packaged as an online installer and complete zip file.
     ---
     * #### Git
         ---
-        * Distribution: [Portable Git](https://git-scm.com/) [Download](https://git-scm.com/install/windows)
+        * Distribution: [Portable Git](https://git-scm.com/), [Download](https://git-scm.com/install/windows)
             
             Extract contents to
             
             ``Common Files\Git``
 
             VSCode should just pick it up when launched thanks to ``%HOME%`` **recommend disabling "Git Bash" terminal profile in VScode because it is accessible via other terminal profiles**
+    * #### GnuPG
+        ---
+        * Distribution [GPG Plugin Portable](https://portableapps.com/apps/security/gpg-plugin-portable)
+
+            ``%GNUPGHOME%`` Points to ``Common Files\GPG\.gnupg``
+
     * #### Python
         ---
         * Extension: [Python, Microsoft](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
-        * Distribution: [WinPython](https://winpython.github.io) [Download](https://sourceforge.net/projects/winpython/files/)
+        * Distribution: [WinPython](https://winpython.github.io), [Download](https://sourceforge.net/projects/winpython/files/)
         
             Pretty straight forward with this extract the files to  
 
@@ -120,7 +127,7 @@ is packaged as an online installer and complete zip file.
     * #### Java
         ---
         * Extension: [Extension Pack for Java, Microsoft](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)
-        * Distribution: [jdkPortable](https://portableapps.com/apps/utilities/jdkportable) [OpenJDK Portable](https://portableapps.com/apps/utilities/OpenJDK)
+        * Distribution: [jdkPortable](https://portableapps.com/apps/utilities/jdkportable), [OpenJDK Portable](https://portableapps.com/apps/utilities/OpenJDK)
           
             PortableApps.com already have Java Development Kits available and has builtin integration 
             [OpenJDK64](https://portableapps.com/apps/utilities/OpenJDK64) is required as ``[FileWriteN]`` points to it
@@ -131,7 +138,7 @@ is packaged as an online installer and complete zip file.
             ``%JAVA_HOME%`` Points to ``Common Files\JDK64``
     * #### Gradle
         * Extension: [Gradle for Java, Microsoft](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-gradle)
-        * Distribution: [Gradle](https://gradle.org) [Download](https://gradle.org/releases/)
+        * Distribution: [Gradle](https://gradle.org), [Download](https://gradle.org/releases/)
 
             This was made with "complete" version but "binary-only" should work extract files to
 
@@ -142,7 +149,7 @@ is packaged as an online installer and complete zip file.
             ``%GRADLE_HOME%\bin`` is added to ``%PATH%``
     * #### Maven
         * Extension: [Maven for Java, Microsoft](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-maven)
-        * Distribution: [Maven](https://maven.apache.org) [Download](https://maven.apache.org/download.cgi)
+        * Distribution: [Maven](https://maven.apache.org), [Download](https://maven.apache.org/download.cgi)
             
             Extract files to
 
@@ -170,7 +177,7 @@ is packaged as an online installer and complete zip file.
         ---
     * #### PHP
         * Extensions: [PHP Debug](https://marketplace.visualstudio.com/items?itemName=xdebug.php-debug) [PHP Intelephense](https://marketplace.visualstudio.com/items?itemName=bmewburn.vscode-intelephense-client)
-        * Distribution: [XAMPP](https://www.apachefriends.org/) [Download](https://sourceforge.net/projects/xampp/files/XAMPP%20Windows/)
+        * Distribution: [XAMPP](https://www.apachefriends.org/), [Launcher](https://portableapps.com/apps/development/xampp), [Download](https://sourceforge.net/projects/xampp/files/XAMPP%20Windows/)
 
             [PortableApps.com](https://portableapps.com/apps/development/xampp) has a launcher for XAMPP for easy integration with PortableApps.com Platform
 
@@ -182,7 +189,7 @@ is packaged as an online installer and complete zip file.
         ---
     * #### C#
         * Extension: [C# Dev Kit](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit)
-        * Distribution: [.NET](https://dotnet.microsoft.com/) [Download](https://dotnet.microsoft.com/en-us/download)
+        * Distribution: [.NET](https://dotnet.microsoft.com/), [Download](https://dotnet.microsoft.com/en-us/download)
 
             Requires .NET 10 Binaries other versions can added by extracting and not replacing to ``Common Files\Dotnet``
             
@@ -193,7 +200,7 @@ is packaged as an online installer and complete zip file.
             this is included in .NET and has been made portable every modification made points to ``%DOTNET_ROOT%\.nuget`` 
         ---
     * #### Node.js
-        * Distribution: [Node.js](https://nodejs.org) [Download](https://nodejs.org/en/download)
+        * Distribution: [Node.js](https://nodejs.org), [Download](https://nodejs.org/en/download)
         
             Standalone binary only extract contents to
 
@@ -216,28 +223,21 @@ is packaged as an online installer and complete zip file.
             **Note [MySQL Shell For VS Code](https://marketplace.visualstudio.com/items?itemName=Oracle.mysql-shell-for-vs-code) is generally redundant and may leave files behind**
         
     * #### MySQL Server
-        * Distribution: [MySQL](https://www.mysql.com/) [Download](https://dev.mysql.com/downloads/mysql/) 
+        * Distribution: [MySQL](https://www.mysql.com/), [Download](https://dev.mysql.com/downloads/mysql/) 
 
         **Zip archive only** extract to ``Common Files\MySQL``
-        get the ``mysqld.cmd`` from the **Misc** folder the file was designed to be run from VSCode's integrated terminal because ``%MYSQL%`` is established ``mysql_stop.cmd`` is the same, to run outside of the integrated terminal create a batch file with following with the same folder as ``mysqld.cmd``
-        ```cmd
-            @echo off
-            setlocal ENABLEDELAYEDEXPANSION
-            set "MYSQL=%~dp0"
-            set "MYSQL=%MYSQL:\=\\%"
-            call mysqld.cmd
-        ```     
+        get the ``mysqld.cmd`` from the **Misc** folder the file handles the portablizaiton ``mysql_start.cmd`` and``mysql_stop.cmd`` are required if ran from Vscode's Task system see ``tasks.json`` for details  
         **Note ``mysqld.cmd`` establishes an insecure server**
 
     * #### MySQL Shell
-        * Distribution: [MySQL Shell](https://github.com/mysql/mysql-shell) [Download](https://dev.mysql.com/downloads/shell/)
+        * Distribution: [MySQL Shell](https://github.com/mysql/mysql-shell), [Download](https://dev.mysql.com/downloads/shell/)
         
-        **Zip archive only** extract to ``Common Files\Utilities\mysqlsh`` the ``mysqlsh.cmd`` file in the **Misc** Folder should be in ``Common Files\Utilities`` see the prior mentioned file for what is need to make MySQL Shell portable
+        **Zip archive only** extract to ``Common Files\MySQLShell`` the ``mysqlsh.cmd`` file in the **Misc** Folder should be in ``Common Files\Utilities`` see the prior mentioned file for what is need to make MySQL Shell portable
 
         see terminal.json in the **Misc** folder for terminal profile   
 
     * #### MariaDB Server
-        * Distribution: [XAMPP](https://www.apachefriends.org/) [Download](https://sourceforge.net/projects/xampp/files/XAMPP%20Windows/)
+        * Distribution: [XAMPP](https://www.apachefriends.org/), [Launcher](https://portableapps.com/apps/development/xampp), [Download](https://sourceforge.net/projects/xampp/files/XAMPP%20Windows/)
         
             XAMPP already provides a MariaDB server
 
@@ -248,28 +248,24 @@ is packaged as an online installer and complete zip file.
         **Note Support is experimental**
 
     * #### MongoDB Server
-        * Distribution: [MongoDB](https://www.mongodb.com/products/self-managed/community-edition) [Download](https://www.mongodb.com/try/download/community)
+        * Distribution: [MongoDB](https://www.mongodb.com/products/self-managed/community-edition), [Download](https://www.mongodb.com/try/download/community)
         
-        **Zip archive only** extract to ``Common Files\MongoDB``
-        get the ``mongod.cmd`` from the **Misc** folder the file was designed to be run from VSCode's integrated terminal because ``%MONGODB%`` is established ``mongodb_stop.cmd`` is the same, to run outside of the integrated terminal create a batch file with following with the same folder as ``mongod.cmd``
-        ```cmd
-            @echo off
-            setlocal ENABLEDELAYEDEXPANSION
-            set MONGODB=%~dp0
-            call mongod.cmd
-        ```
+       **Zip archive only** extract to ``Common Files\MongoDB``
+        get the ``mongod.cmd`` from the **Misc** folder the file handles the portablizaiton ``mongodb_start.cmd`` and``mongodb_stop.cmd`` are required if ran from Vscode's Task system see ``tasks.json`` for details 
+
+        **Note MongoDB Shell is required to shutdown the server safely**
 
     * #### MongoDB Shell
-        * Distribution: [MongoDB Shell](https://www.mongodb.com/docs/mongodb-shell/) [Download](https://www.mongodb.com/try/download/shell)
+        * Distribution: [MongoDB Shell](https://www.mongodb.com/docs/mongodb-shell/), [Download](https://www.mongodb.com/try/download/shell)
         
-        **Zip archive only** extract to ``Common Files\Utilities``
-        the only files necessary are with in the bin folder any ``.dll`` files can be drop in ``Common Files\Utilities\lib`` or left in ``Common Files\Utilities``, ``mongosh.cfg`` in the **Misc Folder** is necessary, command history and "config" is preserved via ``[DirectoriesMove]`` on **%APPDATA%\mongodb\mongosh**
+        **Zip archive only** extract to ``Common Files\MongoShell``
+        ``mongosh.cfg`` in the **Misc Folder** is necessary and needs to go into with in the **bin** folder inside ``MongoShell``, the ``mongosh.cmd`` in **Misc** should be put in ``Common Files\Utilities`` so it is callable via the terminal, command history and "config" is preserved via ``[DirectoriesMove]`` on **%APPDATA%\mongodb\mongosh**
 
         see terminal.json in the **Misc** folder for terminal profile
     ---
     * #### Swift
         * Extension: [Swift](https://marketplace.visualstudio.com/items?itemName=swiftlang.swift-vscode)
-        * Distribution: [Swift](https://www.swift.org/) [Download](https://www.swift.org/install/windows/)
+        * Distribution: [Swift](https://www.swift.org/), [Download](https://www.swift.org/install/windows/)
         ### **This was attempted it does not see to be possible**
     ---
     
