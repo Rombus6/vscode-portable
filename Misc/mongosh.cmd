@@ -1,6 +1,6 @@
 @echo off
 if "%*" == "" (
-    %~dp0mongosh\bin\mongosh -nodb
+    %~dp0..\MongoShell\bin\mongosh -nodb
 ) else (
-    %~dp0mongosh\bin\mongosh %*
+    %~dp0..\MongoShell\bin\mongosh %*
 )
